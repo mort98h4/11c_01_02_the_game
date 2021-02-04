@@ -28,8 +28,6 @@ function start() {
     rock.addEventListener("click", playersChoice);
     paper.addEventListener("click", playersChoice);
     scissors.addEventListener("click", playersChoice);
-
-    // playersChoice();   
 }
 
 function playersChoice() {
@@ -56,11 +54,21 @@ function computersChoice() {
 
 function showAnimation() {
     console.log("showAnimation");
-    determineWinner();
+
+    document.querySelectorAll(".player").forEach((player) => {
+        player.classList.add("shake");
+    });
+
+    document.querySelector(".player").addEventListener("animationend", determineWinner);
 }
 
 function determineWinner() {
     console.log("determineWinner");
+
+    document.querySelectorAll(".player").forEach((player) => {
+        player.classList.remove("shake");
+        player.offsetLeft;
+    });
 
     if (player == 0 && computer == 0 || player == 1 && computer == 1 || player == 2 && computer == 2) {
         console.log("It's a draw");
