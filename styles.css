@@ -88,12 +88,21 @@ h1 {
   position: absolute;
   width: 100%;
   margin-top: 10vw;
-  pointer-events: none;
+  /* pointer-events: none; */
+  z-index: 10;
 }
 
 #texts h1 {
   color: #ffde53;
   text-shadow: 4px 4px 1px red, -4px -4px 1px red, 4px -4px 1px red, -4px 4px 1px red;
+}
+
+#play {
+  cursor: pointer;
+}
+
+#play>h1 {
+  font-size: 4rem;
 }
 
 .hidden {
