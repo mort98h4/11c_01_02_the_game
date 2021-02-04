@@ -19,6 +19,8 @@ function start() {
     draw.classList.add("hidden");
     lose.classList.add("hidden");
     play.classList.add("hidden");
+    document.querySelector("#player1").style.backgroundImage = `url(hand_rock.png)`;
+    document.querySelector("#player2").style.backgroundImage = `url(hand_rock.png)`;
 
     rock.dataset.id = 0;
     paper.dataset.id = 1;
@@ -65,10 +67,32 @@ function showAnimation() {
 function determineWinner() {
     console.log("determineWinner");
 
+    if (player == 0) {
+        document.querySelector("#player1").style.backgroundImage = `url(hand_rock.png)`;
+    } else if (player == 1) {
+        document.querySelector("#player1").style.backgroundImage = `url(hand_paper.png)`;
+    } else if (player == 2) {
+        document.querySelector("#player1").style.backgroundImage = "url(hand_scissors.png";
+    }
+
+    if (computer == 0) {
+        document.querySelector("#player2").style.backgroundImage = `url(hand_rock.png)`;
+    } else if (computer == 1) {
+        document.querySelector("#player2").style.backgroundImage = `url(hand_paper.png)`;
+    } else if (computer == 2) {
+        document.querySelector("#player2").style.backgroundImage = "url(hand_scissors.png";
+    }
+
     document.querySelectorAll(".player").forEach((player) => {
         player.classList.remove("shake");
         player.offsetLeft;
     });
+
+    showWinner();
+}
+
+function showWinner() {
+    console.log("showWinner");
 
     if (player == 0 && computer == 0 || player == 1 && computer == 1 || player == 2 && computer == 2) {
         console.log("It's a draw");
